@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --cl-primary: hsl(0, 0%, 100%);
+    --cl-accent: hsl(334, 63%, 48%);
+    --bg-primary: hsl(329, 46%, 24%);
+    --bg-primary-hover: hsl(329, 46%, 20%);
+    --duration: 250ms;
+  }
+}
