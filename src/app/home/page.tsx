@@ -1,9 +1,5 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Love Matcher - Home",
-};
+import LoversCollation from "@/components/LoversCollation";
 
 export default function Home() {
-  return <div>home</div>;
+  return <LoversCollation />;
 }
