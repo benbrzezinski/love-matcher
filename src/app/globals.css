@@ -8,6 +8,31 @@
     --cl-accent: hsl(334, 63%, 48%);
     --bg-primary: hsl(329, 46%, 24%);
     --bg-primary-hover: hsl(329, 46%, 20%);
+    --bg-secondary: hsl(332, 70%, 25%);
+    --bg-secondary-accent: hsl(332, 67%, 35%);
+    --fs-primary: 16px;
+    --fs-small: 14px;
+    --fs-big: 24px;
+    --fs-bigger: 30px;
+    --fs-biggest: 40px;
+    --lh-primary: 1.5;
+    --br-primary: 8px;
     --duration: 250ms;
+  }
+
+  button,
+  input,
+  select {
+    outline: none;
+  }
+
+  input[type="date"],
+  input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+
+  select {
+    appearance: none;
+    cursor: pointer;
   }
 }

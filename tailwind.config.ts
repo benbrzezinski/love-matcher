@@ -19,9 +19,24 @@ const config: Config = {
       backgroundColor: {
         primary: "var(--bg-primary)",
         "primary-hover": "var(--bg-primary-hover)",
+        secondary: "var(--bg-secondary)",
+        "secondary-accent": "var(--bg-secondary-accent)",
       },
       transitionDuration: {
         primary: "var(--duration)",
+      },
+      borderRadius: {
+        primary: "var(--br-primary)",
+      },
+      fontSize: {
+        base: "var(--fs-primary)",
+        small: "var(--fs-small)",
+        big: "var(--fs-big)",
+        bigger: "var(--fs-bigger)",
+        biggest: "var(--fs-biggest)",
+      },
+      lineHeight: {
+        primary: "var(--lh-primary)",
       },
     },
   },

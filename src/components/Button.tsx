@@ -1,21 +1,32 @@
 interface ButtonProps {
+  children?: React.ReactNode;
   type?: "button" | "submit" | "reset";
-  text: string;
+  content?: string;
+  title?: string;
+  classes?: string;
+  style?: React.CSSProperties;
   onClick?: () => void;
 }
 
 export default function Button({
+  children,
   type = "button",
-  text,
+  content,
+  title,
+  classes = "text-white bg-primary hover:bg-primary-hover focus-visible:bg-primary-hover",
+  style,
   onClick,
 }: ButtonProps) {
   return (
     <button
       type={type}
-      className="rounded-lg bg-primary px-[20px] py-[10px] transition-colors duration-primary hover:bg-primary-hover"
+      style={style}
+      className={`${classes} rounded-primary px-[20px] py-[10px] font-bold transition-colors duration-primary`}
+      title={title}
       onClick={onClick}
     >
-      {text}
+      {content}
+      {children}
     </button>
   );
 }
