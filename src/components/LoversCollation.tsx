@@ -52,7 +52,7 @@ export default function LoversCollation() {
       </FlexBox>
       <Lottie
         animationData={arrows}
-        className="mr-[50px] hidden size-[125px] translate-y-[-80%] rounded-full bg-white lg:block"
+        className="mr-[46px] hidden size-[200px] translate-y-[-50%] p-5 lg:block"
       />
       <FlexBox
         flow="flex flex-col"
@@ -70,7 +70,7 @@ export default function LoversCollation() {
         />
         <Button
           content="Start Matching"
-          classes="text-white bg-primary hover:bg-primary-hover focus-visible:bg-primary-hover top-[115%] left-[50%] lg:top-[75%] lg:left-[-43%]"
+          classes="text-white bg-primary hover:bg-primary-hover focus-visible:bg-primary-hover top-[115%] left-[50%] lg:top-[75%] lg:left-[-55%]"
           style={{
             width: "max-content",
             position: "absolute",
@@ -79,7 +79,7 @@ export default function LoversCollation() {
         />
         <Button
           content="Clear All"
-          classes="text-[var(--cl-accent)] bg-white hover:bg-gray-100 focus-visible:bg-gray-100 top-[126%] left-[50%] lg:top-[86%] lg:left-[-43%]"
+          classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-visible:bg-gray-200 top-[126%] left-[50%] lg:top-[86%] lg:left-[-55%]"
           style={{
             width: "max-content",
             position: "absolute",
