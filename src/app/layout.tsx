@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${font.className} container mx-auto bg-linear text-base leading-primary text-primary`}
+        className={`${font.className} bg-linearMainBg container mx-auto text-base leading-primary text-primary`}
       >
         <main className="relative min-h-dvh px-[15px] py-[50px]">
           {children}

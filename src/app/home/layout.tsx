@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <FlexBox flow="flex flex-col" gap="gap-[250px] lg:gap-[100px]">
+    <FlexBox flow="flex flex-col" gap="gap-[300px] lg:gap-[200px]">
       {children}
       <Table />
     </FlexBox>
