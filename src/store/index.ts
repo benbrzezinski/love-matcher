@@ -1,11 +1,12 @@
 import { create } from "zustand";
-import { ZodiacSign } from "@/types";
 
 interface Result {
   id: string;
-  fullName: string;
-  age: number;
-  zodiacSign: ZodiacSign;
+  names: {
+    male: string;
+    female: string;
+  };
+  similarity: string;
   date: Date;
 }
 
