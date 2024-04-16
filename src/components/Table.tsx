@@ -76,7 +76,7 @@ export default function Table() {
             </tbody>
           </table>
         ) : (
-          <div className="grid w-full place-items-center bg-gradient-to-b from-white px-3 pt-10 text-center text-big font-bold text-accent">
+          <div className="grid w-full place-items-center bg-gradient-to-b from-[var(--bg-secondary-accent)] px-3 pt-10 text-center text-big font-bold">
             <p>Empty love history!</p>
             <p className="text-base">
               Begin your journey to find your soulmate and start creating
