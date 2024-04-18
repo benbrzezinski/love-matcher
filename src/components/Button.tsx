@@ -21,7 +21,7 @@ export default function Button({
     <button
       type={type}
       style={style}
-      className={`${classes} rounded-primary px-[20px] py-[10px] font-bold transition-colors duration-primary`}
+      className={`${classes} w-max rounded-primary px-[20px] py-[10px] font-bold transition-colors duration-primary`}
       title={title}
       onClick={onClick}
     >

@@ -18,3 +18,13 @@ export interface FormState {
   age: number | null;
   zodiacSign: "" | ZodiacSign;
 }
+
+export interface Result {
+  id: string;
+  names: {
+    male: string;
+    female: string;
+  };
+  similarity: string;
+  date: string;
+}

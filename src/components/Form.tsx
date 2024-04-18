@@ -23,10 +23,7 @@ export default function Form({ name, state, setState }: FormProps) {
   };
 
   return (
-    <form
-      name={name}
-      className={`flex flex-col gap-[20px] w-[290px]${name === "male" ? " translate-y-[10px]" : ""}`}
-    >
+    <form name={name} className="flex w-[290px] flex-col gap-[20px]">
       <FlexBox flow="flex flex-col" gap="gap-[5px]">
         <label htmlFor={`${name}-full-name`} className={styles.label}>
           Full Name
@@ -41,7 +38,7 @@ export default function Form({ name, state, setState }: FormProps) {
           onChange={e => {
             const value = e.target.value;
 
-            if (/^[a-z\s]+$/i.test(value)) {
+            if (/^[\p{L}\s]+$/u.test(value)) {
               setState(s => ({ ...s, fullName: value }));
               return;
             }

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Comfortaa } from "next/font/google";
+import { ToastContainer, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import "./globals.css";
 
 const font = Comfortaa({ subsets: ["latin"] });
@@ -25,6 +27,7 @@ export default function RootLayout({
         <main className="relative min-h-dvh px-[15px] py-[50px]">
           {children}
         </main>
+        <ToastContainer position="top-center" transition={Slide} closeOnClick />
       </body>
     </html>
   );
