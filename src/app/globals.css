@@ -9,7 +9,8 @@
     --bg-primary: hsl(329, 46%, 24%);
     --bg-primary-hover: hsl(329, 46%, 20%);
     --bg-secondary: hsl(332, 70%, 25%);
-    --bg-secondary-accent: hsl(332, 67%, 35%);
+    --bg-secondary-accent-lighter: hsl(332, 67%, 35%);
+    --bg-secondary-accent-darker: hsl(332, 67%, 32%);
     --fs-primary: 16px;
     --fs-small: 14px;
     --fs-big: 24px;
@@ -18,6 +19,7 @@
     --lh-primary: 1.5;
     --br-primary: 8px;
     --duration: 250ms;
+    --toastify-color-warning: var(--cl-accent) !important;
   }
 
   button,
@@ -34,5 +36,15 @@
   select {
     appearance: none;
     cursor: pointer;
+  }
+}
+
+.Toastify__toast-container {
+  width: max-content !important;
+}
+
+@media screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    width: 100dvw !important;
   }
 }

@@ -20,7 +20,8 @@ const config: Config = {
         primary: "var(--bg-primary)",
         "primary-hover": "var(--bg-primary-hover)",
         secondary: "var(--bg-secondary)",
-        "secondary-accent": "var(--bg-secondary-accent)",
+        "secondary-accent-lighter": "var(--bg-secondary-accent-lighter)",
+        "secondary-accent-darker": "var(--bg-secondary-accent-darker)",
       },
       transitionDuration: {
         primary: "var(--duration)",

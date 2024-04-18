@@ -5,9 +5,9 @@ interface LoaderProps {
 export default function Loader({ visible = true }: LoaderProps) {
   return (
     <div
-      className={`${visible ? "block" : "hidden"} pointer-events-none fixed bottom-[50px] left-[50%] translate-x-[-50%] whitespace-nowrap rounded-primary bg-white p-5 font-bold`}
+      className={`${visible ? "block" : "hidden"} pointer-events-none fixed bottom-[50px] left-[50%] translate-x-[-50%] whitespace-nowrap rounded-primary bg-white p-5`}
     >
-      <p className="text-small text-accent">Loading content...</p>
+      <p className="font-bold text-accent">Loading content...</p>
     </div>
   );
 }

@@ -1,17 +1,25 @@
 "use client";
 
 import Lottie from "lottie-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FormState } from "@/types";
+import { toast } from "react-toastify";
+import { nanoid } from "nanoid";
+import { FormState, Result } from "@/types";
 import FlexBox from "@/views/FlexBox";
 import Form from "./Form";
 import Button from "./Button";
 import Loader from "./Loader";
+import useResultsStore from "@/store";
 import maleAvatar from "@/anims/json/male-avatar.json";
 import arrows from "@/anims/json/arrows.json";
 import femaleAvatar from "@/anims/json/female-avatar.json";
+import calculateSimilarity from "@/utils/calculate-similarity";
 
 export default function LoversCollation() {
+  const router = useRouter();
+  const { addResult } = useResultsStore();
+
   const [lottieLoading, setLottieLoading] = useState({
     maleAvatar: true,
     femaleAvatar: true,
@@ -32,6 +40,11 @@ export default function LoversCollation() {
     zodiacSign: "",
   });
 
+  const notAllContentVisible =
+    lottieLoading.maleAvatar ||
+    lottieLoading.femaleAvatar ||
+    lottieLoading.arrows;
+
   const resetState = () => {
     setMaleFormState({
       fullName: "",
@@ -46,6 +59,55 @@ export default function LoversCollation() {
       age: null,
       zodiacSign: "",
     });
+  };
+
+  const handleMatching = () => {
+    if (!maleFormState.fullName.trim() || !femaleFormState.fullName.trim()) {
+      toast.warning("Please provide your names", { toastId: "fullName" });
+      return;
+    }
+
+    if (!maleFormState.age || !femaleFormState.age) {
+      toast.warning("Please provide your ages (must be greater than 0)", {
+        toastId: "age",
+      });
+      return;
+    }
+
+    if (!maleFormState.zodiacSign || !femaleFormState.zodiacSign) {
+      toast.warning("Please select your zodiac signs", {
+        toastId: "zodiacSign",
+      });
+      return;
+    }
+
+    const similarity = calculateSimilarity({
+      male: {
+        fullName: maleFormState.fullName,
+        age: maleFormState.age,
+        zodiacSign: maleFormState.zodiacSign,
+      },
+      female: {
+        fullName: femaleFormState.fullName,
+        age: femaleFormState.age,
+        zodiacSign: femaleFormState.zodiacSign,
+      },
+    });
+
+    const date = new Date();
+
+    const newResult: Result = {
+      id: nanoid(),
+      names: {
+        male: maleFormState.fullName,
+        female: femaleFormState.fullName,
+      },
+      similarity: `${similarity}%`,
+      date: `${date.toLocaleDateString()} / ${date.toLocaleTimeString()}`,
+    };
+
+    addResult(newResult);
+    router.push(`/home/results/${newResult.id}`, { scroll: false });
   };
 
   return (
@@ -63,7 +125,7 @@ export default function LoversCollation() {
         </FlexBox>
         <Lottie
           animationData={arrows}
-          className="mr-[46px] hidden size-[200px] translate-y-[-50%] p-5 lg:block"
+          className="hidden size-[200px] translate-y-[-50%] p-5 lg:block"
           onDOMLoaded={() => setLottieLoading(l => ({ ...l, arrows: false }))}
         />
         <FlexBox
@@ -73,7 +135,7 @@ export default function LoversCollation() {
         >
           <Lottie
             animationData={femaleAvatar}
-            className="min-h-[290px] max-w-[320px]"
+            className="min-h-[220px] max-w-[400px]"
             onDOMLoaded={() =>
               setLottieLoading(l => ({ ...l, femaleAvatar: false }))
             }
@@ -83,34 +145,31 @@ export default function LoversCollation() {
             state={femaleFormState}
             setState={setFemaleFormState}
           />
-          <Button
-            content="Start Matching"
-            classes="text-white bg-primary hover:bg-primary-hover focus-visible:bg-primary-hover top-[115%] left-[50%] lg:top-[75%] lg:left-[-55%]"
-            style={{
-              width: "max-content",
-              position: "absolute",
-              transform: "translate(-50%, -50%)",
-            }}
-          />
-          <Button
-            content="Clear All"
-            classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-visible:bg-gray-200 top-[126%] left-[50%] lg:top-[86%] lg:left-[-55%]"
-            style={{
-              width: "max-content",
-              position: "absolute",
-              transform: "translate(-50%, -50%)",
-            }}
-            onClick={resetState}
-          />
+          {!notAllContentVisible && (
+            <>
+              <Button
+                content="Start Matching"
+                classes="text-white bg-primary hover:bg-primary-hover focus-notAllContentVisible:bg-primary-hover top-[115%] left-[50%] lg:top-[75%] lg:left-[-32.5%]"
+                style={{
+                  position: "absolute",
+                  transform: "translate(-50%, -50%)",
+                }}
+                onClick={handleMatching}
+              />
+              <Button
+                content="Clear All"
+                classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-notAllContentVisible:bg-gray-200 top-[126%] left-[50%] lg:top-[86%] lg:left-[-32.5%]"
+                style={{
+                  position: "absolute",
+                  transform: "translate(-50%, -50%)",
+                }}
+                onClick={resetState}
+              />
+            </>
+          )}
         </FlexBox>
       </div>
-      <Loader
-        visible={
-          lottieLoading.maleAvatar ||
-          lottieLoading.femaleAvatar ||
-          lottieLoading.arrows
-        }
-      />
+      <Loader visible={notAllContentVisible} />
     </>
   );
 }

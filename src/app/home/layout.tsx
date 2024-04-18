@@ -1,15 +1,14 @@
-import FlexBox from "@/views/FlexBox";
-import Table from "@/components/Table";
-
-export default function RootLayout({
+export default function HomeLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
-    <FlexBox flow="flex flex-col" gap="gap-[300px] lg:gap-[200px]">
+    <>
       {children}
-      <Table />
-    </FlexBox>
+      {modal}
+    </>
   );
 }
