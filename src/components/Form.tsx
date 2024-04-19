@@ -19,7 +19,7 @@ export default function Form({ name, state, setState }: FormProps) {
   const styles = {
     label: "pl-[5px]",
     input:
-      "rounded-primary px-[10px] py-[5px] text-accent transition-shadow duration-primary hover:shadow-[0_0_5px_white] focus-visible:shadow-[0_0_5px_white]",
+      "rounded-primary px-[10px] py-[5px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_5px_white]",
   };
 
   return (

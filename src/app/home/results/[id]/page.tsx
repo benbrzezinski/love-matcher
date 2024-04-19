@@ -1,19 +1,16 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import type { Metadata } from "next";
 import FlexBox from "@/views/FlexBox";
-import Button from "@/components/Button";
-import useResultsStore from "@/store";
+import ResultDetailsContent from "@/components/ResultDetailsContent";
+
+export const metadata: Metadata = {
+  title: "Love Matcher - Result",
+};
 
 interface ResultDetailsProps {
   params: { id: string };
 }
 
 export default function ResultDetails({ params }: ResultDetailsProps) {
-  const { results } = useResultsStore();
-  const router = useRouter();
-  const result = results.find(result => result.id === params.id);
-
   return (
     <FlexBox
       flow="flex flex-col"
@@ -22,8 +19,7 @@ export default function ResultDetails({ params }: ResultDetailsProps) {
       gap="gap-[30px]"
       style={{ minHeight: "calc(100dvh - 100px)" }}
     >
-      {result && <p>Similarity: {result.similarity}</p>}
-      <Button content="Go back" onClick={() => router.back()} />
+      <ResultDetailsContent paramsID={params.id} />
     </FlexBox>
   );
 }

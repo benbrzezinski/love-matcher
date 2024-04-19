@@ -13,7 +13,7 @@ const config: Config = {
         accent: "var(--cl-accent)",
       },
       backgroundImage: {
-        linearMainBg:
+        "linear-main":
           "linear-gradient(0deg, var(--cl-accent) 40%, var(--bg-primary) 80%)",
       },
       backgroundColor: {
