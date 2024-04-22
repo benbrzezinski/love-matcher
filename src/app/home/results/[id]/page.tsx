@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import FlexBox from "@/views/FlexBox";
 import ResultDetailsContent from "@/components/ResultDetailsContent";
 
 export const metadata: Metadata = {
@@ -12,14 +11,8 @@ interface ResultDetailsProps {
 
 export default function ResultDetails({ params }: ResultDetailsProps) {
   return (
-    <FlexBox
-      flow="flex flex-col"
-      justify="justify-center"
-      items="items-center"
-      gap="gap-[30px]"
-      style={{ minHeight: "calc(100dvh - 100px)" }}
-    >
-      <ResultDetailsContent paramsID={params.id} />
-    </FlexBox>
+    <div className="grid min-h-[calc(100dvh-100px)] place-items-center gap-[40px] px-[25px]">
+      <ResultDetailsContent paramsID={params.id} isModal={false} />
+    </div>
   );
 }
