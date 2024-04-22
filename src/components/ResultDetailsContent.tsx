@@ -7,7 +7,7 @@ import ProgressBar from "./ProgressBar";
 import SimilarityScore from "./SimilarityScore";
 import Button from "./Button";
 import useResultsStore from "@/store";
-import done from "@/anims/json/done.json";
+import getLottieBySimilarity from "@/utils/get-lottie-by-similarity";
 
 interface ResultDetailsContentProps {
   paramsID: string;
@@ -24,19 +24,23 @@ export default function ResultDetailsContent({
     useState(false);
   const [finalSimilarityIsDisplayed, setFinalSimilarityIsDisplayed] =
     useState(false);
-  const [lottieAnimCompleted, setLottieAnimCompleted] = useState(false);
+  const [lottieCompleted, setLottieCompleted] = useState(false);
   const { results } = useResultsStore();
   const router = useRouter();
   const result = results.find(result => result.id === paramsID);
 
   useEffect(() => {
-    const intervalID = setInterval(update, INTERVAL_DELAY);
+    if (!result) return;
 
-    function update() {
-      if (!result) return;
+    const intervalID = setInterval(
+      () => update(result.similarity),
+      INTERVAL_DELAY,
+    );
+
+    function update(similarity: number) {
       setSimilarityStartedUpdating(true);
 
-      if (result.similarity === displayedSimilarity) {
+      if (similarity === displayedSimilarity) {
         clearInterval(intervalID);
         setFinalSimilarityIsDisplayed(true);
         return;
@@ -74,14 +78,14 @@ export default function ResultDetailsContent({
         </div>
         {finalSimilarityIsDisplayed && (
           <div
-            className={`${lottieAnimCompleted ? "pointer-events-none opacity-0" : "pointer-events-auto opacity-100"} fixed inset-0 grid place-items-center bg-black bg-opacity-80 transition-opacity duration-primary`}
+            className={`${lottieCompleted ? "pointer-events-none opacity-0" : "pointer-events-auto opacity-100"} fixed inset-0 grid place-items-center bg-black bg-opacity-80 transition-opacity duration-primary`}
           >
             <Lottie
-              animationData={done}
+              animationData={getLottieBySimilarity(result.similarity)}
               className="max-w-[500px]"
               loop={false}
               onComplete={() => {
-                setLottieAnimCompleted(true);
+                setLottieCompleted(true);
               }}
             />
           </div>

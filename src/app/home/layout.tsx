@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Love Matcher - Home",
+  title: "Love Matcher | Home",
 };
 
 export default function HomeLayout({

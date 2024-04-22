@@ -8,8 +8,8 @@ import FlexBox from "@/views/FlexBox";
 import AccentText from "@/components/AccentText";
 import Button from "@/components/Button";
 import Loader from "@/components/Loader";
-import profile from "@/anims/json/profile.json";
-import ballon from "@/anims/json/ballon.json";
+import profile from "@/lotties/profile.json";
+import ballon from "@/lotties/ballon.json";
 
 export default function WelcomePage() {
   const [lottieLoading, setLottieLoading] = useState({

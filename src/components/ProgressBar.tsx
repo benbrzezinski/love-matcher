@@ -33,6 +33,7 @@ export default function ProgressBar({
           height={80}
           alt="progress bar heart with result"
           loading="eager"
+          priority
         />
       </div>
     </div>

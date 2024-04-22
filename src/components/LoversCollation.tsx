@@ -11,9 +11,9 @@ import Form from "./Form";
 import Button from "./Button";
 import Loader from "./Loader";
 import useResultsStore from "@/store";
-import maleAvatar from "@/anims/json/male-avatar.json";
-import arrows from "@/anims/json/arrows.json";
-import femaleAvatar from "@/anims/json/female-avatar.json";
+import maleAvatar from "@/lotties/male-avatar.json";
+import arrows from "@/lotties/arrows.json";
+import femaleAvatar from "@/lotties/female-avatar.json";
 import calculateSimilarity from "@/utils/calculate-similarity";
 import getDescriptionBySimilarity from "@/utils/get-description-by-similarity";
 

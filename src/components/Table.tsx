@@ -7,7 +7,7 @@ import FlexBox from "@/views/FlexBox";
 import AccentText from "./AccentText";
 import Button from "./Button";
 import useResultsStore from "@/store";
-import emptyHistory from "@/anims/json/empty-history.json";
+import emptyHistory from "@/lotties/empty-history.json";
 
 export default function Table() {
   const { results, removeResult } = useResultsStore();
