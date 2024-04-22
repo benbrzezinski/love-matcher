@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ResultDetailsContent from "@/components/ResultDetailsContent";
 
 export const metadata: Metadata = {
-  title: "Love Matcher - Result",
+  title: "Love Matcher | Result",
 };
 
 interface ResultDetailsProps {
