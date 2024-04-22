@@ -15,6 +15,7 @@ import maleAvatar from "@/anims/json/male-avatar.json";
 import arrows from "@/anims/json/arrows.json";
 import femaleAvatar from "@/anims/json/female-avatar.json";
 import calculateSimilarity from "@/utils/calculate-similarity";
+import getDescriptionBySimilarity from "@/utils/get-description-by-similarity";
 
 export default function LoversCollation() {
   const router = useRouter();
@@ -94,6 +95,7 @@ export default function LoversCollation() {
       },
     });
 
+    const description = getDescriptionBySimilarity(similarity);
     const date = new Date();
 
     const newResult: Result = {
@@ -102,12 +104,14 @@ export default function LoversCollation() {
         male: maleFormState.fullName,
         female: femaleFormState.fullName,
       },
-      similarity: `${similarity}%`,
+      similarity,
+      description,
       date: `${date.toLocaleDateString()} / ${date.toLocaleTimeString()}`,
     };
 
     addResult(newResult);
     router.push(`/home/results/${newResult.id}`, { scroll: false });
+    resetState();
   };
 
   return (
@@ -158,7 +162,7 @@ export default function LoversCollation() {
               />
               <Button
                 content="Clear All"
-                classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-notAllContentVisible:bg-gray-200 top-[126%] left-[50%] lg:top-[86%] lg:left-[-32.5%]"
+                classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-notAllContentVisible:bg-gray-200 top-[128%] left-[50%] lg:top-[86%] lg:left-[-32.5%]"
                 style={{
                   position: "absolute",
                   transform: "translate(-50%, -50%)",

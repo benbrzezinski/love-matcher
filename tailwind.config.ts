@@ -15,6 +15,8 @@ const config: Config = {
       backgroundImage: {
         "linear-main":
           "linear-gradient(0deg, var(--cl-accent) 40%, var(--bg-primary) 80%)",
+        "linear-progress-bar":
+          "linear-gradient(90deg, var(--cl-accent) 10%, var(--bg-secondary-accent-lighter) 20%, var(--bg-secondary-accent-darker) 40%, var(--bg-secondary) 60%, var(--bg-primary) 80%, var(--bg-primary-hover) 90%)",
       },
       backgroundColor: {
         primary: "var(--bg-primary)",

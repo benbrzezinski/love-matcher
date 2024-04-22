@@ -53,7 +53,7 @@ export default function Table() {
                     <p>{names.male}</p>
                     <p>{names.female}</p>
                   </td>
-                  <td className={styles.padding}>{similarity}</td>
+                  <td className={styles.padding}>{`${similarity}%`}</td>
                   <td className={styles.padding}>{date}</td>
                   <td className={styles.padding}>
                     <FlexBox

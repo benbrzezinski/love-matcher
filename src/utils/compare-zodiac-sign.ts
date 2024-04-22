@@ -1,5 +1,5 @@
 import { ZodiacSign } from "@/types";
-import zodiacSignsCompatibility from "@/data/zodiacSignsCompatibility";
+import zodiacSignsCompatibility from "@/data/zodiac-signs-compatibility";
 
 const compareZodiacSign = (
   maleZodiacSign: ZodiacSign,

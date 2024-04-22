@@ -25,6 +25,7 @@ export interface Result {
     male: string;
     female: string;
   };
-  similarity: string;
+  similarity: number;
+  description: string;
   date: string;
 }
