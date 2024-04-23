@@ -5,12 +5,12 @@ import compareZodiacSign from "./compare-zodiac-sign";
 
 interface Data {
   male: {
-    fullName: string;
+    name: string;
     age: number;
     zodiacSign: ZodiacSign;
   };
   female: {
-    fullName: string;
+    name: string;
     age: number;
     zodiacSign: ZodiacSign;
   };
@@ -19,7 +19,7 @@ interface Data {
 const calculateSimilarity = (data: Data) => {
   const { male, female } = data;
 
-  const nameSimilarity = compareName(male.fullName, female.fullName);
+  const nameSimilarity = compareName(male.name, female.name);
   const ageSimilarity = compareAge(male.age, female.age);
   const zodiacSignSimilarity = compareZodiacSign(
     male.zodiacSign,

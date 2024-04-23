@@ -28,14 +28,14 @@ export default function LoversCollation() {
   });
 
   const [maleFormState, setMaleFormState] = useState<FormState>({
-    fullName: "",
+    name: "",
     birthday: "",
     age: null,
     zodiacSign: "",
   });
 
   const [femaleFormState, setFemaleFormState] = useState<FormState>({
-    fullName: "",
+    name: "",
     birthday: "",
     age: null,
     zodiacSign: "",
@@ -48,14 +48,14 @@ export default function LoversCollation() {
 
   const resetState = () => {
     setMaleFormState({
-      fullName: "",
+      name: "",
       birthday: "",
       age: null,
       zodiacSign: "",
     });
 
     setFemaleFormState({
-      fullName: "",
+      name: "",
       birthday: "",
       age: null,
       zodiacSign: "",
@@ -63,8 +63,8 @@ export default function LoversCollation() {
   };
 
   const handleMatching = () => {
-    if (!maleFormState.fullName.trim() || !femaleFormState.fullName.trim()) {
-      toast.warning("Please provide your names", { toastId: "fullName" });
+    if (!maleFormState.name.trim() || !femaleFormState.name.trim()) {
+      toast.warning("Please provide your names", { toastId: "name" });
       return;
     }
 
@@ -84,12 +84,12 @@ export default function LoversCollation() {
 
     const similarity = calculateSimilarity({
       male: {
-        fullName: maleFormState.fullName,
+        name: maleFormState.name,
         age: maleFormState.age,
         zodiacSign: maleFormState.zodiacSign,
       },
       female: {
-        fullName: femaleFormState.fullName,
+        name: femaleFormState.name,
         age: femaleFormState.age,
         zodiacSign: femaleFormState.zodiacSign,
       },
@@ -101,8 +101,8 @@ export default function LoversCollation() {
     const newResult: Result = {
       id: nanoid(),
       names: {
-        male: maleFormState.fullName,
-        female: femaleFormState.fullName,
+        male: maleFormState.name,
+        female: femaleFormState.name,
       },
       similarity,
       description,

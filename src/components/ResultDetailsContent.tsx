@@ -60,7 +60,7 @@ export default function ResultDetailsContent({
         <div
           className={
             isModal
-              ? "grid h-full place-items-center gap-[40px] overflow-y-auto px-[40px] pb-[30px] pt-[40px]"
+              ? "grid h-full place-items-center gap-[40px] overflow-y-auto overscroll-contain px-[40px] pb-[30px] pt-[40px]"
               : "contents"
           }
         >

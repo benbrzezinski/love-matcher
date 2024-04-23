@@ -24,7 +24,9 @@ export default function Table() {
   return (
     <FlexBox flow="flex flex-col" gap="gap-[10px]">
       <h2 className="pl-[10px] text-biggest font-black">History</h2>
-      <div className={`overflow-y-auto rounded-primary${styles.tableVisible}`}>
+      <div
+        className={`overflow-y-auto overscroll-none rounded-primary${styles.tableVisible}`}
+      >
         {results.length > 0 ? (
           <table className="w-full whitespace-nowrap text-center text-small">
             <thead className="bg-secondary font-black uppercase">
@@ -77,7 +79,7 @@ export default function Table() {
                         />
                       </Button>
                       <Button
-                        title="Remove test"
+                        title="Remove result"
                         style={{ padding: 3 }}
                         onClick={() => removeResult(id)}
                       >
@@ -96,9 +98,11 @@ export default function Table() {
             </tbody>
           </table>
         ) : (
-          <div className="grid w-full place-items-center bg-gradient-to-b from-[var(--bg-secondary-accent-lighter)] px-3 pt-10 text-center text-big font-bold">
-            <p>Empty love history!</p>
-            <p className="text-base">
+          <div className="grid w-full place-items-center bg-gradient-to-b from-[var(--bg-secondary-accent-lighter)] px-3 pt-10 text-center">
+            <p className="text-big font-black leading-relaxed">
+              Love&rsquo;s Empty Past!
+            </p>
+            <p className="font-bold">
               Begin your journey to find your soulmate and start creating
               memories.
             </p>

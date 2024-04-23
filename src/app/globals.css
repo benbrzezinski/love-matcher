@@ -29,12 +29,13 @@
   }
 
   input[type="date"],
-  input::-webkit-calendar-picker-indicator {
+  select {
+    appearance: none;
     cursor: pointer;
   }
 
-  select {
-    appearance: none;
+  input::-webkit-calendar-picker-indicator {
+    opacity: 0;
     cursor: pointer;
   }
 }
