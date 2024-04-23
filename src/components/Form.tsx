@@ -19,7 +19,7 @@ export default function Form({ name, state, setState }: FormProps) {
   const styles = {
     label: "pl-[5px]",
     input:
-      "rounded-primary px-[10px] py-[5px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_5px_white]",
+      "min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_5px_white]",
   };
 
   return (
@@ -34,6 +34,7 @@ export default function Form({ name, state, setState }: FormProps) {
           id={`${name}-name`}
           className={styles.input}
           placeholder={name === "male" ? "James" : "Claire"}
+          autoComplete="off"
           value={state.name}
           onChange={e => {
             const value = e.target.value;
@@ -60,6 +61,7 @@ export default function Form({ name, state, setState }: FormProps) {
           name="birthday"
           id={`${name}-birthday`}
           className={styles.input}
+          style={{ paddingBlock: 5 }}
           value={state.birthday}
           onChange={e => {
             const value = e.target.value;
@@ -78,7 +80,7 @@ export default function Form({ name, state, setState }: FormProps) {
           height={22}
           alt="arrow up and down"
           loading="lazy"
-          className="pointer-events-none absolute right-[10px] top-[56%] cursor-pointer"
+          className="pointer-events-none absolute right-[12px] top-[56%] cursor-pointer"
         />
       </FlexBox>
       <FlexBox
@@ -116,7 +118,7 @@ export default function Form({ name, state, setState }: FormProps) {
           height={20}
           alt="arrow up and down"
           loading="lazy"
-          className="pointer-events-none absolute right-[10px] top-[57%] cursor-pointer"
+          className="pointer-events-none absolute right-[12px] top-[57%] cursor-pointer"
         />
       </FlexBox>
     </form>

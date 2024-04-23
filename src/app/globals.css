@@ -19,7 +19,9 @@
     --lh-primary: 1.5;
     --br-primary: 8px;
     --duration: 250ms;
-    --toastify-color-warning: var(--cl-accent) !important;
+    --toastify-color-success: var(--cl-accent) !important;
+    --toastify-color-info: var(--cl-accent) !important;
+    --toastify-color-warning: var(--bg-secondary-accent-darker) !important;
   }
 
   button,
