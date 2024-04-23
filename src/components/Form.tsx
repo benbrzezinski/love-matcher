@@ -25,29 +25,33 @@ export default function Form({ name, state, setState }: FormProps) {
   return (
     <form name={name} className="flex w-[290px] flex-col gap-[20px]">
       <FlexBox flow="flex flex-col" gap="gap-[5px]">
-        <label htmlFor={`${name}-full-name`} className={styles.label}>
-          Full Name
+        <label htmlFor={`${name}-name`} className={styles.label}>
+          Name
         </label>
         <input
           type="text"
-          name="full-name"
-          id={`${name}-full-name`}
+          name="name"
+          id={`${name}-name`}
           className={styles.input}
-          placeholder={name === "male" ? "James Moore" : "Claire Brown"}
-          value={state.fullName}
+          placeholder={name === "male" ? "James" : "Claire"}
+          value={state.name}
           onChange={e => {
             const value = e.target.value;
 
             if (/^[\p{L}\s]+$/u.test(value)) {
-              setState(s => ({ ...s, fullName: value }));
+              setState(s => ({ ...s, name: value }));
               return;
             }
 
-            if (!value) setState(s => ({ ...s, fullName: "" }));
+            if (!value) setState(s => ({ ...s, name: "" }));
           }}
         />
       </FlexBox>
-      <FlexBox flow="flex flex-col" gap="gap-[5px]">
+      <FlexBox
+        flow="flex flex-col"
+        gap="gap-[5px]"
+        style={{ position: "relative" }}
+      >
         <label htmlFor={`${name}-birthday`} className={styles.label}>
           Birthday
         </label>
@@ -67,6 +71,14 @@ export default function Form({ name, state, setState }: FormProps) {
               zodiacSign: getZodiacName(value),
             }));
           }}
+        />
+        <Image
+          src="/svgs/calendar.svg"
+          width={22}
+          height={22}
+          alt="arrow up and down"
+          loading="lazy"
+          className="pointer-events-none absolute right-[10px] top-[56%] cursor-pointer"
         />
       </FlexBox>
       <FlexBox
@@ -99,12 +111,12 @@ export default function Form({ name, state, setState }: FormProps) {
           ))}
         </select>
         <Image
-          src="/svgs/arrow-down-up.svg"
+          src="/svgs/arrow-up-down.svg"
           width={20}
           height={20}
-          alt="arrow down"
+          alt="arrow up and down"
           loading="lazy"
-          className="pointer-events-none absolute right-[10px] top-[56%] cursor-pointer"
+          className="pointer-events-none absolute right-[10px] top-[57%] cursor-pointer"
         />
       </FlexBox>
     </form>

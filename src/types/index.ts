@@ -13,7 +13,7 @@ export type ZodiacSign =
   | "Pisces";
 
 export interface FormState {
-  fullName: string;
+  name: string;
   birthday: string;
   age: number | null;
   zodiacSign: "" | ZodiacSign;
