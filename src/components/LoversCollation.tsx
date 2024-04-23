@@ -1,8 +1,8 @@
 "use client";
 
 import Lottie from "lottie-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import { FormState, Result } from "@/types";
@@ -19,6 +19,7 @@ import getDescriptionBySimilarity from "@/utils/get-description-by-similarity";
 
 export default function LoversCollation() {
   const router = useRouter();
+  const pathname = usePathname();
   const { addResult } = useResultsStore();
 
   const [lottieLoading, setLottieLoading] = useState({
@@ -41,12 +42,18 @@ export default function LoversCollation() {
     zodiacSign: "",
   });
 
-  const notAllContentVisible =
+  const lottieFilesLoading =
     lottieLoading.maleAvatar ||
     lottieLoading.femaleAvatar ||
     lottieLoading.arrows;
 
-  const resetState = () => {
+  useEffect(() => {
+    if (pathname.includes("results")) {
+      toast.dismiss();
+    }
+  }, [pathname]);
+
+  const resetState = (toastVisible = true) => {
     setMaleFormState({
       name: "",
       birthday: "",
@@ -60,6 +67,13 @@ export default function LoversCollation() {
       age: null,
       zodiacSign: "",
     });
+
+    if (toastVisible) {
+      toast.success("All fields cleared", {
+        toastId: "reset",
+        autoClose: 3000,
+      });
+    }
   };
 
   const handleMatching = () => {
@@ -81,6 +95,11 @@ export default function LoversCollation() {
       });
       return;
     }
+
+    toast.info("Matching in progress...", {
+      toastId: "matching",
+      autoClose: false,
+    });
 
     const similarity = calculateSimilarity({
       male: {
@@ -111,7 +130,7 @@ export default function LoversCollation() {
 
     addResult(newResult);
     router.push(`/home/results/${newResult.id}`, { scroll: false });
-    resetState();
+    resetState(false);
   };
 
   return (
@@ -149,11 +168,11 @@ export default function LoversCollation() {
             state={femaleFormState}
             setState={setFemaleFormState}
           />
-          {!notAllContentVisible && (
+          {!lottieFilesLoading && (
             <>
               <Button
                 content="Start Matching"
-                classes="text-white bg-primary hover:bg-primary-hover focus-notAllContentVisible:bg-primary-hover top-[115%] left-[50%] lg:top-[75%] lg:left-[-32.5%]"
+                classes="text-white bg-primary hover:bg-primary-hover focus-visible:bg-primary-hover top-[115%] left-[50%] lg:top-[75%] lg:left-[-32.5%]"
                 style={{
                   position: "absolute",
                   transform: "translate(-50%, -50%)",
@@ -162,7 +181,7 @@ export default function LoversCollation() {
               />
               <Button
                 content="Clear All"
-                classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-notAllContentVisible:bg-gray-200 top-[128%] left-[50%] lg:top-[86%] lg:left-[-32.5%]"
+                classes="text-[var(--cl-accent)] bg-white hover:bg-gray-200 focus-visible:bg-gray-200 top-[128%] left-[50%] lg:top-[86%] lg:left-[-32.5%]"
                 style={{
                   position: "absolute",
                   transform: "translate(-50%, -50%)",
@@ -173,7 +192,7 @@ export default function LoversCollation() {
           )}
         </FlexBox>
       </div>
-      <Loader visible={notAllContentVisible} />
+      <Loader visible={lottieFilesLoading} />
     </>
   );
 }
