@@ -120,8 +120,8 @@ export default function LoversCollation() {
     const newResult: Result = {
       id: nanoid(),
       names: {
-        male: maleFormState.name,
-        female: femaleFormState.name,
+        male: maleFormState.name.toLocaleLowerCase().trim(),
+        female: femaleFormState.name.toLocaleLowerCase().trim(),
       },
       similarity,
       description,

@@ -13,13 +13,13 @@ export default function SimilarityScore({
 }: SimilarityScoreProps) {
   return (
     <FlexBox flow="flex flex-col" items="items-center" gap="gap-[40px]">
-      <div className="relative grid size-[150px] place-items-center rounded-full bg-secondary-accent-lighter shadow-[0_15px_10px_var(--bg-primary)] md:size-[200px]">
+      <div className="relative grid size-[150px] place-items-center rounded-full bg-secondary-accent-lighter shadow-[0_15px_10px_var(--bg-primary)] sm:size-[200px]">
         <p className="text-biggest font-black">{displayedSimilarity}%</p>
       </div>
       {finalSimilarityIsDisplayed ? (
-        <p className="max-w-[650px] text-center text-small">{description}</p>
+        <p className="max-w-[700px] text-center text-small">{description}</p>
       ) : (
-        <p className="pointer-events-none select-none text-small font-black">
+        <p className="pointer-events-none select-none text-small font-black sm:text-base">
           Shaping your love profile...
         </p>
       )}

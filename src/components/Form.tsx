@@ -19,7 +19,7 @@ export default function Form({ name, state, setState }: FormProps) {
   const styles = {
     label: "pl-[5px]",
     input:
-      "min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_5px_white]",
+      "min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]",
   };
 
   return (
@@ -92,8 +92,8 @@ export default function Form({ name, state, setState }: FormProps) {
           Zodiac Sign
         </label>
         <select
-          id={`${name}-zodiac-sign`}
           name="zodiac-sign"
+          id={`${name}-zodiac-sign`}
           className={styles.input}
           value={state.zodiacSign}
           onChange={e => {

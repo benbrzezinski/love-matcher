@@ -1,3 +1,5 @@
+import { SortBy } from "@/enums";
+
 export type ZodiacSign =
   | "Aries"
   | "Taurus"
@@ -17,6 +19,11 @@ export interface FormState {
   birthday: string;
   age: number | null;
   zodiacSign: "" | ZodiacSign;
+}
+
+export interface FiltersState {
+  searchName: string;
+  sortBy: "" | SortBy;
 }
 
 export interface Result {
