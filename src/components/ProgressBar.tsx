@@ -21,7 +21,7 @@ export default function ProgressBar({
         }}
       ></div>
       <div
-        className="absolute top-[50%] translate-x-[-50%] translate-y-[-50%] transition-[left] ease-linear"
+        className="absolute top-[50%] min-w-[80px] translate-x-[-50%] translate-y-[-50%] transition-[left] ease-linear"
         style={{
           left: similarityStartedUpdating ? `${similarity}%` : "0%",
           transitionDuration: `${INTERVAL_DELAY * similarity}ms`,
