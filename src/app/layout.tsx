@@ -8,7 +8,7 @@ const font = Comfortaa({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Love Matcher",
-  description: "Love Matching App",
+  description: "Love Matching Game",
 };
 
 export const viewport: Viewport = {

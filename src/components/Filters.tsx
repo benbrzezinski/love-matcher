@@ -1,14 +1,14 @@
 "use client";
 
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import Image from "next/image";
-import { SetStateAction, useState, useEffect } from "react";
 import { FiltersState } from "@/types";
 import { SortBy } from "@/enums";
 import FlexBox from "@/views/FlexBox";
 
 interface FiltersProps {
   filters: FiltersState;
-  setFilters: React.Dispatch<SetStateAction<FiltersState>>;
+  setFilters: Dispatch<SetStateAction<FiltersState>>;
 }
 
 export default function Filters({ filters, setFilters }: FiltersProps) {

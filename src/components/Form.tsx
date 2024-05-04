@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
+import Image from "next/image";
 import dobToAge from "dob-to-age";
 import { FormState, ZodiacSign } from "@/types";
 import FlexBox from "@/views/FlexBox";

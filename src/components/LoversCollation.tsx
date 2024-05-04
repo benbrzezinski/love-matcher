@@ -70,7 +70,7 @@ export default function LoversCollation() {
 
     if (toastVisible) {
       toast.success("All fields cleared", {
-        toastId: "reset",
+        toastId: "success_reset",
         autoClose: 3000,
       });
     }
@@ -78,26 +78,26 @@ export default function LoversCollation() {
 
   const handleMatching = () => {
     if (!maleFormState.name.trim() || !femaleFormState.name.trim()) {
-      toast.warning("Please provide your names", { toastId: "name" });
+      toast.warning("Please provide your names", { toastId: "warning_name" });
       return;
     }
 
     if (!maleFormState.age || !femaleFormState.age) {
       toast.warning("Please provide your ages (must be greater than 0)", {
-        toastId: "age",
+        toastId: "warning_age",
       });
       return;
     }
 
     if (!maleFormState.zodiacSign || !femaleFormState.zodiacSign) {
       toast.warning("Please select your zodiac signs", {
-        toastId: "zodiacSign",
+        toastId: "warning_zodiacSign",
       });
       return;
     }
 
     toast.info("Matching in progress...", {
-      toastId: "matching",
+      toastId: "info_matching",
       autoClose: false,
     });
 

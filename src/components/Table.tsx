@@ -2,6 +2,7 @@
 
 import Lottie from "lottie-react";
 import Image from "next/image";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiltersState } from "@/types";
@@ -106,9 +107,13 @@ export default function Table() {
                       <Button
                         title="See details"
                         style={{ padding: 3 }}
-                        onClick={() =>
-                          router.push(`/home/results/${id}`, { scroll: false })
-                        }
+                        onClick={() => {
+                          router.push(`/home/results/${id}`, { scroll: false });
+                          toast.info("Delving into details...", {
+                            toastId: "info_details",
+                            autoClose: false,
+                          });
+                        }}
                       >
                         <Image
                           src="/svgs/arrow-square-right.svg"
@@ -121,7 +126,13 @@ export default function Table() {
                       <Button
                         title="Remove result"
                         style={{ padding: 3 }}
-                        onClick={() => removeResult(id)}
+                        onClick={() => {
+                          removeResult(id);
+                          toast.success("Removed from history", {
+                            toastId: "success_remove",
+                            autoClose: 3000,
+                          });
+                        }}
                       >
                         <Image
                           src="/svgs/trashcan.svg"
