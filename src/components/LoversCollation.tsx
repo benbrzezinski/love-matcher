@@ -22,6 +22,12 @@ export default function LoversCollation() {
   const pathname = usePathname();
   const { addResult } = useResultsStore();
 
+  useEffect(() => {
+    if (pathname.includes("results")) {
+      toast.dismiss();
+    }
+  }, [pathname]);
+
   const [lottieLoading, setLottieLoading] = useState({
     maleAvatar: true,
     femaleAvatar: true,
@@ -46,12 +52,6 @@ export default function LoversCollation() {
     lottieLoading.maleAvatar ||
     lottieLoading.femaleAvatar ||
     lottieLoading.arrows;
-
-  useEffect(() => {
-    if (pathname.includes("results")) {
-      toast.dismiss();
-    }
-  }, [pathname]);
 
   const resetState = (toastVisible = true) => {
     setMaleFormState({
@@ -125,7 +125,7 @@ export default function LoversCollation() {
       },
       similarity,
       description,
-      date: `${date.toLocaleDateString()} / ${date.toLocaleTimeString()}`,
+      date: `${date.toLocaleDateString("pl-PL")} / ${date.toLocaleTimeString("pl-PL", { hour: "2-digit", minute: "2-digit" })}`,
     };
 
     addResult(newResult);

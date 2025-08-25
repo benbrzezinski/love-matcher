@@ -79,7 +79,6 @@ export default function Form({ name, state, setState }: FormProps) {
           width={22}
           height={22}
           alt="arrow up and down"
-          loading="lazy"
           className="pointer-events-none absolute right-[12px] top-[56%] cursor-pointer"
         />
       </FlexBox>
@@ -117,7 +116,6 @@ export default function Form({ name, state, setState }: FormProps) {
           width={20}
           height={20}
           alt="arrow up and down"
-          loading="lazy"
           className="pointer-events-none absolute right-[12px] top-[57%] cursor-pointer"
         />
       </FlexBox>

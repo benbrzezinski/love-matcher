@@ -31,9 +31,7 @@ export default function ProgressBar({
           src="/svgs/progress-bar-heart.svg"
           width={80}
           height={80}
-          alt="progress bar heart with result"
-          loading="eager"
-          priority
+          alt="heart indicating progress"
         />
       </div>
     </div>

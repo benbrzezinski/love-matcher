@@ -120,7 +120,6 @@ export default function Table() {
                           width={30}
                           height={30}
                           alt="arrow right in square"
-                          loading="lazy"
                         />
                       </Button>
                       <Button
@@ -139,7 +138,6 @@ export default function Table() {
                           width={30}
                           height={30}
                           alt="bin"
-                          loading="lazy"
                         />
                       </Button>
                     </FlexBox>

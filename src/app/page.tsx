@@ -29,10 +29,10 @@ export default function WelcomePage() {
         <FlexBox flow="flex flex-col" items="items-center">
           <Image
             src="/svgs/chat-heart.svg"
-            alt="chat heart"
+            alt="chat icon with heart"
             width={50}
             height={50}
-            loading="lazy"
+            priority
           />
           <h1 className="flex gap-[10px] text-bigger font-medium">
             <AccentText plain="Lo" accent="ve" />

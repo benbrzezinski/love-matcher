@@ -82,7 +82,6 @@ export default function Filters({ filters, setFilters }: FiltersProps) {
           width={20}
           height={20}
           alt="arrow up and down"
-          loading="lazy"
           className="pointer-events-none absolute right-[12px] top-[50%] translate-y-[-50%] cursor-pointer"
         />
       </div>

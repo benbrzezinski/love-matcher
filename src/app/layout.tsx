@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Comfortaa } from "next/font/google";
 import { ToastContainer, Slide } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
 import "./globals.css";
 
 const font = Comfortaa({ subsets: ["latin"] });
