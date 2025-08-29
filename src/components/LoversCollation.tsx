@@ -53,7 +53,7 @@ export default function LoversCollation() {
     lottieLoading.femaleAvatar ||
     lottieLoading.arrows;
 
-  const resetState = (toastVisible = true) => {
+  const resetState = ({ toastVisible }: { toastVisible: boolean }) => {
     setMaleFormState({
       name: "",
       birthday: "",
@@ -130,7 +130,7 @@ export default function LoversCollation() {
 
     addResult(newResult);
     router.push(`/home/results/${newResult.id}`, { scroll: false });
-    resetState(false);
+    resetState({ toastVisible: false });
   };
 
   return (
@@ -186,7 +186,7 @@ export default function LoversCollation() {
                   position: "absolute",
                   transform: "translate(-50%, -50%)",
                 }}
-                onClick={resetState}
+                onClick={() => resetState({ toastVisible: true })}
               />
             </>
           )}

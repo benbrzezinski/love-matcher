@@ -16,23 +16,17 @@ interface FormProps {
 export default function Form({ name, state, setState }: FormProps) {
   const { zodiacSigns, getZodiacName } = useZodiacSign();
 
-  const styles = {
-    label: "pl-[5px]",
-    input:
-      "min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]",
-  };
-
   return (
     <form name={name} className="flex w-[290px] flex-col gap-[20px]">
       <FlexBox flow="flex flex-col" gap="gap-[5px]">
-        <label htmlFor={`${name}-name`} className={styles.label}>
+        <label htmlFor={`${name}-name`} className="pl-[5px]">
           Name
         </label>
         <input
           type="text"
           name="name"
           id={`${name}-name`}
-          className={styles.input}
+          className="min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]"
           placeholder={name === "male" ? "James" : "Claire"}
           autoComplete="off"
           value={state.name}
@@ -53,14 +47,14 @@ export default function Form({ name, state, setState }: FormProps) {
         gap="gap-[5px]"
         style={{ position: "relative" }}
       >
-        <label htmlFor={`${name}-birthday`} className={styles.label}>
+        <label htmlFor={`${name}-birthday`} className="pl-[5px]">
           Birthday
         </label>
         <input
           type="date"
           name="birthday"
           id={`${name}-birthday`}
-          className={styles.input}
+          className="min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]"
           style={{ paddingBlock: 5 }}
           value={state.birthday}
           onChange={e => {
@@ -87,13 +81,13 @@ export default function Form({ name, state, setState }: FormProps) {
         gap="gap-[5px]"
         style={{ position: "relative" }}
       >
-        <label htmlFor={`${name}-zodiac-sign`} className={styles.label}>
+        <label htmlFor={`${name}-zodiac-sign`} className="pl-[5px]">
           Zodiac Sign
         </label>
         <select
           name="zodiac-sign"
           id={`${name}-zodiac-sign`}
-          className={styles.input}
+          className="min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]"
           value={state.zodiacSign}
           onChange={e => {
             setState(s => ({

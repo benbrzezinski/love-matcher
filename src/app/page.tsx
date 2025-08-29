@@ -19,10 +19,6 @@ export default function WelcomePage() {
 
   const router = useRouter();
 
-  const styles = {
-    heading: "text-biggest font-black",
-  };
-
   return (
     <>
       <FlexBox flow="flex flex-col" items="items-center" gap="gap-[20px]">
@@ -38,9 +34,9 @@ export default function WelcomePage() {
             <AccentText plain="Lo" accent="ve" />
             <AccentText plain="Mat" accent="cher" />
           </h1>
-          <p className={styles.heading}>Effective.</p>
-          <p className={styles.heading}>Impressive.</p>
-          <p className={styles.heading}>Personalized.</p>
+          <p className="text-biggest font-black">Effective.</p>
+          <p className="text-biggest font-black">Impressive.</p>
+          <p className="text-biggest font-black">Personalized.</p>
           <p className="w-[290px] text-center text-small font-medium">
             Welcome to Love Matcher, your ultimate companion in finding true
             love and lasting connections.

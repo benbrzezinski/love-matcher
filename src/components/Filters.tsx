@@ -15,12 +15,6 @@ export default function Filters({ filters, setFilters }: FiltersProps) {
   const TIMEOUT_DELAY = 1000;
   const [searchName, setSearchName] = useState(filters.searchName);
 
-  const styles = {
-    label: "pl-[5px]",
-    input:
-      "min-h-[36px] w-[240px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]",
-  };
-
   useEffect(() => {
     const timeoutID = setTimeout(() => {
       setFilters(f => ({ ...f, searchName }));
@@ -41,7 +35,7 @@ export default function Filters({ filters, setFilters }: FiltersProps) {
         type="text"
         name="search-name"
         id="search-name"
-        className={styles.input}
+        className="min-h-[36px] w-[240px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]"
         placeholder="Search by name"
         autoComplete="off"
         value={searchName}
@@ -60,7 +54,7 @@ export default function Filters({ filters, setFilters }: FiltersProps) {
         <select
           name="sort-by"
           id="sort-by"
-          className={styles.input}
+          className="min-h-[36px] w-[240px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]"
           value={filters.sortBy}
           onChange={e => {
             setFilters(f => ({
