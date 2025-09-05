@@ -32,6 +32,7 @@ export default function ProgressBar({
           width={80}
           height={80}
           alt="heart indicating progress"
+          priority
         />
       </div>
     </div>
