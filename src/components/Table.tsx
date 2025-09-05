@@ -5,7 +5,7 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FiltersState } from "@/types";
+import type { FiltersState } from "@/types";
 import { SortBy } from "@/enums";
 import FlexBox from "@/views/FlexBox";
 import Filters from "./Filters";

@@ -1,4 +1,4 @@
-import { ZodiacSign } from "@/types";
+import type { ZodiacSign } from "@/types";
 
 export default function useZodiacSign() {
   const zodiacSigns: ZodiacSign[] = [

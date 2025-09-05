@@ -1,4 +1,4 @@
-import { ZodiacSign } from "@/types";
+import type { ZodiacSign } from "@/types";
 import zodiacSignsCompatibility from "@/data/zodiac-signs-compatibility";
 
 const compareZodiacSign = (
@@ -7,6 +7,7 @@ const compareZodiacSign = (
 ) => {
   const compatibility =
     zodiacSignsCompatibility[maleZodiacSign][femaleZodiacSign];
+
   return (compatibility / 2) * 100;
 };
 

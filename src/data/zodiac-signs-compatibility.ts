@@ -1,4 +1,4 @@
-import { ZodiacSign } from "@/types";
+import type { ZodiacSign } from "@/types";
 
 type ZodiacSignsCompatibility = {
   [key in ZodiacSign]: {

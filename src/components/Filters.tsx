@@ -1,8 +1,8 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { type Dispatch, type SetStateAction, useState, useEffect } from "react";
 import Image from "next/image";
-import { FiltersState } from "@/types";
+import type { FiltersState } from "@/types";
 import { SortBy } from "@/enums";
 import FlexBox from "@/views/FlexBox";
 

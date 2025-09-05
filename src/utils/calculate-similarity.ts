@@ -1,4 +1,4 @@
-import { ZodiacSign } from "@/types";
+import type { ZodiacSign } from "@/types";
 import compareName from "./compare-name";
 import compareAge from "./compare-age";
 import compareZodiacSign from "./compare-zodiac-sign";

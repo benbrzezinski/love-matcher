@@ -1,9 +1,9 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import dobToAge from "dob-to-age";
-import { FormState, ZodiacSign } from "@/types";
+import type { FormState, ZodiacSign } from "@/types";
 import FlexBox from "@/views/FlexBox";
 import useZodiacSign from "@/hooks/useZodiacSign";
 
@@ -90,10 +90,14 @@ export default function Form({ name, state, setState }: FormProps) {
           className="min-h-[36px] rounded-primary px-[12px] py-[6px] text-accent transition-shadow duration-primary hover:shadow-[0_0_4px_white] focus-visible:shadow-[0_0_4px_white]"
           value={state.zodiacSign}
           onChange={e => {
-            setState(s => ({
-              ...s,
-              zodiacSign: e.target.value as ZodiacSign,
-            }));
+            const value = e.target.value as ZodiacSign;
+
+            if (zodiacSigns.includes(value)) {
+              setState(s => ({
+                ...s,
+                zodiacSign: value,
+              }));
+            }
           }}
         >
           <option value="" disabled>

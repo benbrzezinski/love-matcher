@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
-import { FormState, Result } from "@/types";
+import type { FormState, Result } from "@/types";
 import FlexBox from "@/views/FlexBox";
 import Form from "./Form";
 import Button from "./Button";
